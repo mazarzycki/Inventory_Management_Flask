@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Update Item</h1>
+
+    <div class="form">
+        <form action="/update/{{item.id}}" method="POST">
+              
+            <input type="text" name="name" id="name" placeholder="name" value="{{item.name}}">
+            <input type="text" name="category" id="category" placeholder="category" value="{{item.category}}"> 
+            <input type="text" name="unit" id="unit" placeholder="unit" value="{{item.unit}}">
+            <input type="value" name="value" id="value" placeholder="value" value="{{item.value}}">
+            <input type="value" name="quantity" id="quantity" placeholder="quantity" value="{{item.quantity}}">
+
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</div>
+{% endblock %}

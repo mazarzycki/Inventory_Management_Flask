@@ -1,0 +1,52 @@
+ {% extends 'base.html' %}
+
+{% block head %}
+<title>Stock SQL Management</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h3 style="text-align: center">Stock SQL Management Tool</h3>
+    {% if goods|length < 1 %}
+    <h4 style="text-align: center">Your stock is empty. Add something!</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Unit</th>
+            <th>Value</th>
+            <th>Quantity</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for good in goods %}
+            <tr>
+                <td>{{ good.name }}</td>
+                <td>{{ good.category }}</td>
+                <td>{{ good.unit }}</td>
+                <td>{{ good.value }}</td>
+                <td>{{ good.quantity }}</td>
+                <td>{{ good.date_created.date() }}</td>
+                <td>
+                    <a href="/delete/{{good.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{good.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    
+    <div class="form">
+        <form action="/" method="POST">
+            <input type="text" name="name" id="name" placeholder="name">
+            <input type="text" name="category" id="category" placeholder="category"> 
+            <input type="text" name="unit" id="unit" placeholder="unit">
+            <input type="value" name="value" id="value" placeholder="value">
+            <input type="value" name="quantity" id="quantity" placeholder="quantity">
+            <input type="submit" value="Add" style = 'font-weight: bold;'>
+        </form>
+    </div>
+</div>
+{% endblock %}
