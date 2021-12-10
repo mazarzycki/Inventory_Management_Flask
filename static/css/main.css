@@ -6,8 +6,7 @@ body, html {
 
 .content {
     margin: auto;
-    text-align: center;
-    
+    text-align: center;  
 }
 
 table, td, th {
@@ -39,3 +38,6 @@ input {
     width: 100px;
 }
 
+.item:hover {
+    color: blueviolet;
+}
